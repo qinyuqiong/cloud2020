@@ -9,3 +9,6 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+.idea/
+/cloud-consumer-order80/cloud-consumer-order80.iml
+/cloud-provider-payment8001/cloud-provider-payment8001.iml
