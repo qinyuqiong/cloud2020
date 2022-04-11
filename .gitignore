@@ -12,3 +12,4 @@ buildNumber.properties
 /cloud-consumer-order80/cloud-consumer-order80.iml
 /cloud-provider-payment8001/cloud-provider-payment8001.iml
 /.idea/
+/cloud-api-commons/cloud-api-commons.iml
