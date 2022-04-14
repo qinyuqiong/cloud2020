@@ -3,9 +3,7 @@ package com.atguigu.springcloud.controller;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -25,8 +23,8 @@ public class OrderController {
      * @param payment 实体
      * @return 结果
      */
-    @GetMapping("/consumer/payment/create")
-    public CommonResult create(Payment payment) {
+    @PostMapping("/consumer/payment/create")
+    public CommonResult create(@RequestBody Payment payment) {
         return restTemplate.postForObject(PAYMENT_SRV_URL + "/payment/create", payment, CommonResult.class);
     }
 
