@@ -3,6 +3,7 @@ package com.atguigu.springcloud.controller;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -36,6 +37,12 @@ public class OrderController {
      */
     @GetMapping("/consumer/payment/get/{id}")
     public CommonResult getPayment(@PathVariable Long id) {
-        return restTemplate.getForObject(PAYMENT_SRV_URL + "/payment/get/" + id, CommonResult.class, id);
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_SRV_URL + "/payment/get/" + id, CommonResult.class);
+        if (entity.getStatusCode().is2xxSuccessful()) {
+            return entity.getBody();
+        } else {
+            return new CommonResult(300, "失败");
+        }
+        //return restTemplate.getForObject(PAYMENT_SRV_URL + "/payment/get/" + id, CommonResult.class, id);
     }
 }
