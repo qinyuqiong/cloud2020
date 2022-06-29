@@ -76,6 +76,7 @@ public class PaymentService {
 
     /**
      * 全部配置
+     *
      * @return
      */
     @HystrixCommand(fallbackMethod = "str_fallbackMethod",
