@@ -24,4 +24,10 @@ public class FlowLimitController {
     public String testB() {
         return "------testB";
     }
+
+    @GetMapping("/testD")
+    public String testD(){
+        int age = 10/0;
+        return "---testD";
+    }
 }
